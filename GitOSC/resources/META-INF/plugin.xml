@@ -1,0 +1,45 @@
+<idea-plugin version="2">
+  <id>com.oschina.plugin.gitosc</id>
+  <name>git@osc</name>
+  <version>1.0</version>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="141.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products -->
+  <depends>Git4Idea</depends>
+  <depends>org.jetbrains.plugins.github</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <checkoutProvider implementation="com.oschina.plugin.gitosc.extensions.GitoscCheckoutProvider"/>
+    <!--<applicationService serviceInterface="org.jetbrains.plugins.github.util.GithubSettings"
+                        serviceImplementation="org.jetbrains.plugins.github.util.GithubSettings"/>
+    <projectService serviceInterface="org.jetbrains.plugins.github.util.GithubProjectSettings"
+                    serviceImplementation="org.jetbrains.plugins.github.util.GithubProjectSettings"/>
+    <vcsAnnotationGutterActionProvider implementation="org.jetbrains.plugins.github.extensions.GithubAnnotationGutterActionProvider" />
+    <vcsConfigurableProvider implementation="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"/>-->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="SayHello" class="com.oschina.plugin.gitosc.SayHelloAction" text="SayHello">
+      <add-to-group group-id="WindowMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt M"/>
+    </action>
+  </actions>
+
+</idea-plugin>
